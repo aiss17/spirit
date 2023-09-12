@@ -1,0 +1,96 @@
+1. Not because React Native is a cross-platform technology development in building mobile applications. I chose React Native because it is based on JavaScript and easy to understand. React native also has a large and active community on various social media platforms to share knowledge between developers. And react native has many complete libraries or components to make it easier to build an applications, and has good performance just like native.
+
+2. 7, but I still have a lot to learn, especially in React Native.
+
+3. The main component lifecycles are: 
+    - constructor = This method is called when the component is first created and is used to set the initial state and bind methods.
+    - render = This method is called every time the component needs to be updated or re-rendered. It returns the JSX markup that will be displayed on the screen.
+    - componentDidMount = This method is called after the component has been mounted to the screen. usually this method is used to call the API to retrieve the data you want to display on the screen.
+    - componentDidUpdate = This method is called after the component has been updated with new props or state. 
+    - componentWillUnmount = This method is called just before the component is unmounted from the screen. It is used to clean up any resources that the component was using, such as event listeners.
+
+4. - The main difference between Component and PureComponent in React is how they check props and state changes and impact application performance. 
+   - ScrollView is suitable for use on relatively small lists of data, while FlatList is suitable for use on larger, more complex lists of data with optimal performance.
+
+5. The main difference is the simplification in writing coding.
+
+6. yes I use redux as a tool to manage global state to make it easier to access state on all screens. I also use a similar tool which is the Context API from React directly.
+
+7. - React Navigation
+   - Axios
+   - Redux
+   - Redux-persist
+   - Moment
+   - React animated
+   - Webview
+   - sqlite
+   - maps
+   - DateTimePicker
+   - Firebase
+   - etc
+
+8. Yes, I know, but I've never used it. I still feel more comfortable creating everything from scratch in my personal style.
+
+9. No, i dont have experience in the real project for native module.
+
+BONUS 
+1. If we want to strictly compare values ​​and data types, then we have to use the '===' operator, whereas if we want to compare only variable values ​​regardless of the data type, then we can use the '==' operator.
+
+2. I don't think there is a significant difference between common function and arrow function.
+  a. common function when using async:
+    async function asyncCall() {
+      console.log('calling');
+      const result = await resolveAfter2Seconds();
+      console.log(result);
+    }
+
+  b. arrow function when using async
+    const asyncCall = async () => {
+      console.log('calling');
+      const result = await resolveAfter2Seconds();
+      console.log(result);
+    }
+
+3. The A one is usually used to hold the initial data, while the B one is usually used if there is a change or addition of data from the previous data.
+
+4. First, create a function for call api. we can use fetch, axios, apisuce or another library. Here I use apisauce.
+
+import apisauce from "apisauce";
+
+const create = () => {
+  const api = apisauce.create({
+    baseURL: "https://baseurl.co.id/v1/",
+    headers: {
+      "Cache-Control": "no-cache",
+      "Content-Type": "application/json"
+    },
+    timeout: 30000
+  });
+
+  // inisialisasi
+  const GET = api.get;
+  const POST = api.post;
+  const DELETE = api.delete;
+  const PUT = api.put;
+
+  return {
+    POST,
+    DELETE,
+    GET,
+    PUT
+  };
+};
+
+export default { create };
+ 
+In other page, when we want to call api, we just call a function we made before. Code i attched below
+
+import Api from './api.js'
+
+const call_api = asycn () => {
+  const payload = {
+    parameterPayload
+  };
+
+  const response = await Api.create().POST("endpoint", changePayload);
+}
